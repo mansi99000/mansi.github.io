@@ -16,11 +16,106 @@
       #about, #research, #teaching {
         scroll-margin-top: 20px;
       }
+      
+      /* Dark theme styles */
+      body.dark-theme {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+      }
+      
+      body.dark-theme .name {
+        color: #ffffff;
+      }
+      
+      body.dark-theme a {
+        color: #4a9eff;
+      }
+      
+      body.dark-theme a:hover {
+        color: #6bb3ff;
+      }
+      
+      body.dark-theme h2 {
+        color: #ffffff;
+      }
+      
+      body.dark-theme strong {
+        color: #ffffff;
+      }
+      
+      body.dark-theme em {
+        color: #b0b0b0;
+      }
+      
+      body.dark-theme .colored-box {
+        background-color: #2d2d2d !important;
+      }
+      
+      body.dark-theme div[style*="border-bottom"] {
+        border-bottom-color: #444 !important;
+      }
+      
+      body.dark-theme div[style*="border-top"] {
+        border-top-color: #444 !important;
+      }
+      
+      body.dark-theme a[style*="color:#333"] {
+        color: #b0b0b0 !important;
+      }
+      
+      body.dark-theme a[style*="color:#333"]:hover {
+        color: #4a9eff !important;
+      }
+      
+      body.dark-theme td[style*="color:#666"] {
+        color: #999 !important;
+      }
+      
+      /* Theme toggle button */
+      #theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background-color 0.3s;
+        z-index: 1000;
+      }
+      
+      #theme-toggle:hover {
+        background-color: #555;
+      }
+      
+      body.dark-theme #theme-toggle {
+        background-color: #555;
+      }
+      
+      body.dark-theme #theme-toggle:hover {
+        background-color: #777;
+      }
+      
+      @media (max-width: 768px) {
+        #theme-toggle {
+          top: 10px;
+          right: 10px;
+          width: 35px;
+          height: 35px;
+          font-size: 18px;
+        }
+      }
     </style>
     
   </head>
 
   <body>
+    <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     <div style="width:100%;max-width:800px;margin:0 auto;padding:20px 0;text-align:center;border-bottom:1px solid #e0e0e0;">
       <a href="index.html#about" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">About</a>
       <a href="index.html#research" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">Research</a>
@@ -4530,5 +4625,30 @@ for Topologically Varying Neural Radiance Fields</span>
         </td>
       </tr>
     </table>
+    
+    <script>
+      // Load saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.getElementById('theme-toggle').textContent = '☀️';
+      }
+      
+      // Toggle theme function
+      function toggleTheme() {
+        const body = document.body;
+        const toggleButton = document.getElementById('theme-toggle');
+        
+        if (body.classList.contains('dark-theme')) {
+          body.classList.remove('dark-theme');
+          toggleButton.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.classList.add('dark-theme');
+          toggleButton.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    </script>
   </body>
 </html>
