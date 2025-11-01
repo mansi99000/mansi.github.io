@@ -9,6 +9,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Dark theme styles */
+      body.dark-theme {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+      }
+      
+      body.dark-theme h1, body.dark-theme h2, body.dark-theme h3 {
+        color: #ffffff;
+      }
+      
+      body.dark-theme a {
+        color: #4a9eff;
+      }
+      
+      body.dark-theme a:hover {
+        color: #6bb3ff;
+      }
+      
+      body.dark-theme .blog-tag {
+        background-color: #2d2d2d;
+        color: #b0b0b0;
+      }
+      
+      body.dark-theme .blog-meta {
+        color: #b0b0b0;
+      }
+      
+      body.dark-theme div[style*="border-bottom"] {
+        border-bottom-color: #444 !important;
+      }
+      
+      body.dark-theme a[style*="color:#333"] {
+        color: #b0b0b0 !important;
+      }
+      
+      body.dark-theme a[style*="color:#333"]:hover {
+        color: #4a9eff !important;
+      }
+      
+      /* Blog styles */
+      .blog-post {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .blog-post:last-child {
+        border-bottom: none;
+      }
+      
+      .blog-title {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      
+      .blog-subtitle {
+        font-size: 18px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+      
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #666;
+      }
+      
+      .blog-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #666;
+      }
+      
+      .blog-time {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      /* Theme toggle button */
+      #theme-toggle {
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        font-family: inherit;
+      }
+    </style>
     
   </head>
 
@@ -17,8 +123,9 @@
       <a href="index.html#about" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">About</a>
       <a href="index.html#research" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">Research</a>
       <a href="index.html#teaching" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">Teaching</a>
-      <a href="images/CV.pdf" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">CV</a>
+      <a href="images/Jake_s_Resume%20(48).pdf" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">CV</a>
       <a href="blog.html" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">Blog</a>
+      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">🌙</button>
     </div>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
@@ -26,14 +133,55 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Blog</h2>
-                <!-- Blog content will go here -->
+                <h1 style="font-size:36px;margin-bottom:40px;text-align:center;">Mansi's Blog</h1>
+                
+                <article class="blog-post">
+                  <h2 class="blog-title">My First AI Conference</h2>
+                  <h3 class="blog-subtitle">CoLLAs 2025</h3>
+                  
+                  <div class="blog-meta">
+                    <span class="blog-tag">Reflection</span>
+                    <span class="blog-time">
+                      <i class="far fa-clock"></i> 5 min read
+                    </span>
+                    <span>
+                      <i class="far fa-calendar"></i> June 2025
+                    </span>
+                  </div>
+                  
+                  <!-- Blog post content will go here -->
+                </article>
               </td>
             </tr>
           </tbody></table>
         </td>
       </tr>
     </tbody></table>
+    
+    <script>
+      // Load saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.getElementById('theme-toggle').textContent = '☀️';
+      }
+      
+      // Toggle theme function
+      function toggleTheme() {
+        const body = document.body;
+        const toggleButton = document.getElementById('theme-toggle');
+        
+        if (body.classList.contains('dark-theme')) {
+          body.classList.remove('dark-theme');
+          toggleButton.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.classList.add('dark-theme');
+          toggleButton.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    </script>
   </body>
 </html>
 
