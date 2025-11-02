@@ -87,42 +87,6 @@
         font-weight: 700;
       }
 
-      /* Filter Buttons */
-      .filter-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 40px;
-        padding: 20px 0;
-      }
-
-      .filter-btn {
-        padding: 10px 20px;
-        background-color: var(--hover-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 6px;
-        color: var(--text-color);
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        outline: none;
-      }
-
-      .filter-btn:hover,
-      .filter-btn:focus {
-        background-color: var(--filter-active);
-        color: #ffffff;
-        border-color: var(--filter-active);
-      }
-
-      .filter-btn.active {
-        background-color: var(--filter-active);
-        color: #ffffff;
-        border-color: var(--filter-active);
-      }
-
       /* Masonry Gallery */
       .gallery {
         column-count: 4;
@@ -212,14 +176,6 @@
         outline-offset: 4px;
       }
 
-      /* Empty State */
-      .empty-state {
-        text-align: center;
-        padding: 60px 20px;
-        color: var(--text-color);
-        font-size: 18px;
-      }
-
       /* Theme Toggle Button */
       #theme-toggle {
         margin: 0 15px;
@@ -248,15 +204,6 @@
 
     <div class="page-container">
       <h1 class="page-title">Snapshots of Joy</h1>
-
-      <div class="filter-container" role="tablist" aria-label="Photo category filters">
-        <button class="filter-btn active" data-category="all" aria-pressed="true" role="tab" tabindex="0">All</button>
-        <button class="filter-btn" data-category="animals" aria-pressed="false" role="tab" tabindex="0">Animals</button>
-        <button class="filter-btn" data-category="nature" aria-pressed="false" role="tab" tabindex="0">Nature</button>
-        <button class="filter-btn" data-category="creative" aria-pressed="false" role="tab" tabindex="0">Creative</button>
-        <button class="filter-btn" data-category="graduation" aria-pressed="false" role="tab" tabindex="0">Graduation</button>
-        <button class="filter-btn" data-category="scuba" aria-pressed="false" role="tab" tabindex="0">Scuba</button>
-      </div>
 
       <div class="gallery" id="gallery" role="grid" aria-label="Photo gallery">
         <!-- Animals Category -->
@@ -313,13 +260,6 @@
         <!-- Creative Category -->
         <article class="gallery-item" data-category="creative" role="gridcell" tabindex="0">
           <figure>
-            <img src="images/36a77729-d4f2-47c2-bf00-d4d0bfbbef59.jpg" alt="Creative workspace" loading="lazy" width="400" height="300">
-            <figcaption>Creative workspace</figcaption>
-          </figure>
-        </article>
-
-        <article class="gallery-item" data-category="creative" role="gridcell" tabindex="0">
-          <figure>
             <img src="images/70935698535__B8320C8E-17B0-402E-8153-5EACE6FCF8F6.heic" alt="Painting (Green Lake, Seattle)" loading="lazy" width="400" height="450">
             <figcaption>Painting (Green Lake, Seattle)</figcaption>
           </figure>
@@ -362,10 +302,6 @@
           </figure>
         </article>
       </div>
-
-      <div class="empty-state hidden" id="empty-state" role="status" aria-live="polite">
-        No photos found in this category.
-      </div>
     </div>
 
     <script>
@@ -391,56 +327,8 @@
         }
       }
 
-      // Filter Functionality
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      const emptyState = document.getElementById('empty-state');
-
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const category = this.getAttribute('data-category');
-          
-          // Update active button
-          filterButtons.forEach(btn => {
-            btn.classList.remove('active');
-            btn.setAttribute('aria-pressed', 'false');
-          });
-          this.classList.add('active');
-          this.setAttribute('aria-pressed', 'true');
-
-          // Filter gallery items
-          let visibleCount = 0;
-          galleryItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            
-            if (category === 'all' || itemCategory === category) {
-              item.classList.remove('hidden');
-              item.style.display = 'inline-block';
-              visibleCount++;
-            } else {
-              item.classList.add('hidden');
-              item.style.display = 'none';
-            }
-          });
-
-          // Show/hide empty state
-          if (visibleCount === 0) {
-            emptyState.classList.remove('hidden');
-          } else {
-            emptyState.classList.add('hidden');
-          }
-        });
-
-        // Keyboard navigation support
-        button.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-      });
-
       // Focus management for gallery items
+      const galleryItems = document.querySelectorAll('.gallery-item');
       galleryItems.forEach(item => {
         item.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
