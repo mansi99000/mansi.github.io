@@ -58,7 +58,7 @@
       .blog-post {
         margin-bottom: 40px;
         padding-bottom: 30px;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 0.5px solid #f0f0f0;
       }
       
       .blog-post:last-child {
@@ -220,6 +220,7 @@
                   <!-- Blog post content will go here -->
                 </article>
                 
+                <!-- Temporarily disabled
                 <article class="blog-post" data-tags="Reflection">
                   <h2 class="blog-title">My First AI Conference</h2>
                   <h3 class="blog-subtitle">CoLLAs 2025</h3>
@@ -236,6 +237,7 @@
                   
                   <!-- Blog post content will go here -->
                 </article>
+                -->
               </td>
             </tr>
           </tbody></table>
@@ -266,6 +268,37 @@
           localStorage.setItem('theme', 'dark');
         }
       }
+      
+      // Blog filtering functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const blogPosts = document.querySelectorAll('.blog-post');
+        
+        filterTags.forEach(tag => {
+          tag.addEventListener('click', function() {
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Update active state
+            filterTags.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter blog posts
+            blogPosts.forEach(post => {
+              const postTags = post.getAttribute('data-tags').toLowerCase();
+              
+              if (filterValue === 'all') {
+                post.classList.remove('hidden');
+              } else {
+                if (postTags.includes(filterValue.toLowerCase())) {
+                  post.classList.remove('hidden');
+                } else {
+                  post.classList.add('hidden');
+                }
+              }
+            });
+          });
+        });
+      });
     </script>
   </body>
 </html>
