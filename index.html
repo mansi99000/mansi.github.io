@@ -73,6 +73,55 @@
         color: #999 !important;
       }
       
+      body.dark-theme .poster-overlay {
+        background: rgba(0, 0, 0, 0.85) !important;
+      }
+      
+      /* Poster hover overlay styles */
+      .poster-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      
+      .poster-container img {
+        transition: transform 0.3s ease;
+        display: block;
+      }
+      
+      .poster-container:hover img {
+        transform: scale(1.05);
+      }
+      
+      .poster-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 8px;
+      }
+      
+      .poster-container:hover .poster-overlay {
+        opacity: 1;
+      }
+      
+      .poster-overlay-text {
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        padding: 8px 16px;
+        border-radius: 4px;
+      }
+      
       /* Theme toggle button - styled as a tab */
       #theme-toggle {
         margin: 0 15px;
@@ -176,8 +225,11 @@
                   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
                     <tr>
                       <td style="padding:16px;width:40%;vertical-align:middle;text-align:center">
-                        <a href="images/poster.jpg" target="_blank">
-                          <img src="images/poster.jpg" alt="AltNet Poster" style="width:100%;max-width:100%;aspect-ratio:16/9;object-fit: cover; object-position: top; border-radius: 8px;">
+                        <a href="images/poster.jpg" target="_blank" class="poster-container" style="display:block;">
+                          <img src="images/poster.jpg" alt="AltNet Poster" style="width:100%;max-width:100%;aspect-ratio:16/10;object-fit: cover; object-position: top; border-radius: 8px;">
+                          <div class="poster-overlay">
+                            <div class="poster-overlay-text">🔍 View Full Poster</div>
+                          </div>
                         </a>
                       </td>
                       <td style="padding:8px;width:60%;vertical-align:middle">
@@ -197,7 +249,7 @@
                         <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">
                           <iframe 
                             src="https://www.youtube.com/embed/XgQybt9C4NA?autoplay=1&loop=1&playlist=XgQybt9C4NA&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&start=7" 
-                            style="width:100%;max-width:100%;aspect-ratio:16/9;border-radius:8px;border:none;"
+                            style="width:100%;max-width:100%;aspect-ratio:16/10;border-radius:8px;border:none;"
                             allow="autoplay"
                             title="Three Minute Thesis Video">
                           </iframe>
