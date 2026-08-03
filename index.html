@@ -28,6 +28,84 @@
         scroll-margin-top: 20px;
       }
 
+      /* ── Scroll-snap waterfall ── */
+      html {
+        scroll-snap-type: y mandatory;
+      }
+      .snap-section {
+        scroll-snap-align: start;
+        min-height: 100vh;
+        box-sizing: border-box;
+      }
+
+      /* ── Full-screen overlay for toggles ── */
+      .page-overlay {
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: 9000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        overflow-y: auto;
+      }
+      .page-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      body.dark-theme .page-overlay {
+        background: #1a1a1a;
+      }
+      .overlay-inner {
+        max-width: 700px;
+        width: 100%;
+        line-height: 1.75;
+      }
+      .overlay-close {
+        position: fixed;
+        top: 1.4rem;
+        right: 2rem;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: #555;
+        font-family: inherit;
+        transition: color 0.2s;
+        z-index: 9001;
+      }
+      .overlay-close:hover { color: #000; }
+      body.dark-theme .overlay-close { color: #aaa; }
+      body.dark-theme .overlay-close:hover { color: #fff; }
+
+      /* Toggle button style */
+      .section-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 1em;
+        font-weight: 600;
+        color: inherit;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+      }
+      .section-toggle:hover { opacity: 1; }
+      .section-toggle .t-arrow {
+        font-size: 0.75em;
+        display: inline-block;
+        transition: transform 0.25s;
+      }
+
       .social-icon {
         font-size: 26px;
         text-decoration: none;
@@ -209,17 +287,27 @@
       <tr style="padding:0px">
         <td style="padding:0px">
 
-          <!-- ── HERO: name + bio left, photo + icons right ── -->
-          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:3em;padding:5% 4% 3% 4%;box-sizing:border-box;">
+          <!-- ── HERO SNAP SECTION ── -->
+          <div id="about" class="snap-section" style="display:flex;align-items:center;justify-content:space-between;gap:3em;padding:0 4%;padding-bottom:8%;box-sizing:border-box;">
 
-            <!-- Left: name + bio -->
+            <!-- Left: name + bio + toggle buttons -->
             <div style="flex:1 1 52%;min-width:0;">
               <p class="name waterfall waterfall-1" style="margin:0 0 0.4em 0;">
                 Mansi Maheshwari
               </p>
-              <p class="waterfall waterfall-2" style="margin:0;font-size:1.05em;line-height:1.6;">
+              <p class="waterfall waterfall-2" style="margin:0 0 0.9em 0;font-size:1.05em;line-height:1.6;">
                 I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
               </p>
+
+              <!-- Toggle buttons — small gap below bio -->
+              <div class="waterfall waterfall-3" style="display:flex;flex-direction:column;gap:0.35em;">
+                <button class="section-toggle" onclick="openOverlay('research')">
+                  <span class="t-arrow">▶</span> Research Interests
+                </button>
+                <button class="section-toggle" onclick="openOverlay('journey')">
+                  <span class="t-arrow">▶</span> My Journey
+                </button>
+              </div>
             </div>
 
             <!-- Right: photo + icons -->
@@ -236,60 +324,67 @@
 
           </div>
 
-          <!-- ── TOGGLES: full width, one-line gap below hero ── -->
-          <div style="padding:0 4% 2.5em 4%;line-height:1.75;">
+          <!-- ── FULL-SCREEN OVERLAYS ── -->
 
-            <!-- Toggle 1: Research Interests -->
-            <details class="waterfall waterfall-3" style="margin-bottom:0.6em;">
-              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;padding:0.2em 0;">
-                <span class="ri-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> Research Interests
-              </summary>
-              <div style="margin-top:0.85em;line-height:1.75;">
-                <p style="margin:0 0 0.85em 0;">
-                  I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
-                </p>
-                <p style="margin:0 0 0.5em 0;font-weight:600;">Current obsessions:</p>
-                <ul style="margin:0;padding-left:1.4em;">
-                  <li style="margin-bottom:0.5em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
-                  <li style="margin-bottom:0.5em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
-                  <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
-                </ul>
-              </div>
-            </details>
-
-            <!-- Toggle 2: My Journey -->
-            <details class="waterfall waterfall-4">
-              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;padding:0.2em 0;">
-                <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
-              </summary>
-              <div style="margin-top:0.85em;line-height:1.75;">
-                <p>
-                  I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
-                </p>
-                <p>
-                  That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
-                </p>
-                <p style="margin-bottom:0;">
-                  Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
-                </p>
-              </div>
-            </details>
-
+          <!-- Research Interests overlay -->
+          <div id="overlay-research" class="page-overlay" role="dialog" aria-modal="true">
+            <button class="overlay-close" onclick="closeOverlay('research')" aria-label="Close">✕</button>
+            <div class="overlay-inner">
+              <p style="margin:0 0 0.85em 0;">
+                I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
+              </p>
+              <p style="margin:0 0 0.5em 0;font-weight:600;">Current obsessions:</p>
+              <ul style="margin:0;padding-left:1.4em;line-height:1.75;">
+                <li style="margin-bottom:0.6em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
+                <li style="margin-bottom:0.6em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
+                <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Arrow rotation for all toggles -->
+          <!-- My Journey overlay -->
+          <div id="overlay-journey" class="page-overlay" role="dialog" aria-modal="true">
+            <button class="overlay-close" onclick="closeOverlay('journey')" aria-label="Close">✕</button>
+            <div class="overlay-inner">
+              <p>
+                I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
+              </p>
+              <p>
+                That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
+              </p>
+              <p style="margin-bottom:0;">
+                Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Overlay JS -->
           <script>
-            document.querySelectorAll('details').forEach(function(det) {
-              det.addEventListener('toggle', function() {
-                const arrow = this.querySelector('.ri-arrow, .journey-arrow');
-                if (arrow) arrow.style.transform = this.open ? 'rotate(90deg)' : 'rotate(0deg)';
-              });
+            function openOverlay(id) {
+              const el = document.getElementById('overlay-' + id);
+              el.classList.add('active');
+              document.body.style.overflow = 'hidden';
+            }
+            function closeOverlay(id) {
+              const el = document.getElementById('overlay-' + id);
+              el.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                document.querySelectorAll('.page-overlay.active').forEach(function(el) {
+                  el.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+              }
             });
           </script>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-                <div style="border-top:1px solid #e0e0e0;margin:40px 0 20px 0;"></div>
+                <div class="snap-section" style="padding-top:2.5em;">
+                <div style="border-top:1px solid #e0e0e0;margin:0 0 20px 0;"></div>
                 <h2 id="news" style="font-size:28px;margin:0 0 25px 0;padding:0 0 0 16px;">News</h2>
                 <!-- Temporarily disabled
                 <p style="margin:0 0 15px 0;padding:0 0 0 16px;display:flex;">
