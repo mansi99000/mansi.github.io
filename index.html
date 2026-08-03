@@ -174,7 +174,7 @@
           <!-- ── HERO: full viewport, name + one-liner left, photo right ── -->
           <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:2.5em;padding:0 2.5%;min-height:calc(100vh - 62px);box-sizing:border-box;">
 
-            <!-- Left: name + one-liner only -->
+            <!-- Left: name + one-liner + My Journey toggle -->
             <div style="flex:1 1 55%;min-width:0;">
               <p class="name" style="margin:0 0 0.3em 0;">
                 Mansi Maheshwari
@@ -182,6 +182,24 @@
               <p style="margin:0;font-size:1.05em;line-height:1.6;color:#444;">
                 I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
               </p>
+
+              <!-- Collapsible My Journey — 2× line spacing below the one-liner -->
+              <details style="margin-top:3.2em;">
+                <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
+                  <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
+                </summary>
+                <div style="margin-top:0.9em;line-height:1.7;">
+                  <p>
+                    I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
+                  </p>
+                  <p>
+                    That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
+                  </p>
+                  <p style="margin-bottom:0;">
+                    Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
+                  </p>
+                </div>
+              </details>
             </div>
 
             <!-- Right: photo + icons -->
@@ -198,28 +216,6 @@
 
           </div>
 
-          <!-- ── BELOW FOLD: My Journey ── -->
-          <div style="padding:2em 2.5% 1.5em 2.5%;">
-
-            <!-- Collapsible My Journey -->
-            <details style="margin-top:0.5em;">
-              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
-                <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
-              </summary>
-              <div style="margin-top:0.9em;line-height:1.7;">
-                <p>
-                  I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
-                </p>
-                <p>
-                  That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
-                </p>
-                <p style="margin-bottom:0;">
-                  Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
-                </p>
-              </div>
-            </details>
-
-          </div>
 
           <!-- Rotating arrow for the toggle -->
           <script>
