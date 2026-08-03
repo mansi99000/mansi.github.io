@@ -27,6 +27,21 @@
       #about, #news, #research, #teaching {
         scroll-margin-top: 20px;
       }
+
+      .social-icon {
+        font-size: 26px;
+        text-decoration: none;
+        color: inherit;
+        opacity: 0.75;
+        transition: opacity 0.2s ease, color 0.2s ease;
+      }
+      .social-icon:hover {
+        opacity: 1;
+        color: #0070f3;
+      }
+      body.dark-theme .social-icon:hover {
+        color: #4a9eff;
+      }
       
       /* Dark theme styles */
       body.dark-theme {
@@ -183,8 +198,15 @@
                 I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
               </p>
 
-              <!-- Collapsible My Journey — 2× line spacing below the one-liner -->
-              <details style="margin-top:3.2em;">
+              <!-- Social icons — directly under bio -->
+              <div style="display:flex;align-items:center;gap:1.25rem;margin-top:1.1em;">
+                <a href="mailto:mmaheshwari@umass.edu" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" class="social-icon" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
+                <a href="https://www.linkedin.com/in/maheshwari989mansim/" class="social-icon" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </div>
+
+              <!-- Collapsible My Journey — 2× line spacing below icons -->
+              <details style="margin-top:2em;">
                 <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
                   <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
                 </summary>
@@ -207,11 +229,6 @@
               <a href="images/mansi_2026.png">
                 <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
               </a>
-              <p style="margin:14px 0 0 0;">
-                <a href="mailto:mmaheshwari@umass.edu" style="margin:0 10px;text-decoration:none;color:#333;font-size:22px;" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" style="margin:0 10px;text-decoration:none;color:#333;font-size:22px;" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
-                <a href="https://www.linkedin.com/in/maheshwari989mansim/" style="margin:0 10px;text-decoration:none;color:#333;font-size:22px;" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-              </p>
             </div>
 
           </div>
