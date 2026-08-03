@@ -171,66 +171,63 @@
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <table id="about" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- ── HERO SECTION ── -->
+          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:2em;padding:3% 2.5% 2% 2.5%;">
 
-            <!-- Row 1: Full-width header -->
-            <tr style="padding:0px">
-              <td colspan="2" style="padding:2.5% 2.5% 0.5% 2.5%;text-align:center;">
-                <p class="name" style="text-align: center;">
-                  Mansi Maheshwari
-                </p>
-                <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 0.6em;">
-                  Reinforcement Learning &amp; Lifelong Learning
-                </p>
-                <p style="font-size:1.08em; text-align:center; margin-top:0.8em;">
-                  Hello! I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
-                </p>
-              </td>
-            </tr>
+            <!-- Left: name, tagline, intro, icons -->
+            <div style="flex:1 1 55%;min-width:0;">
+              <p class="name" style="margin:0 0 0.15em 0;">
+                Mansi Maheshwari
+              </p>
+              <p style="font-style:italic;color:#666;margin:0 0 1em 0;font-size:1em;">
+                Reinforcement Learning &amp; Lifelong Learning
+              </p>
+              <p style="margin:0 0 1.2em 0;font-size:1.05em;line-height:1.6;">
+                I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
+              </p>
 
-            <!-- Row 2: My Journey (left) | Photo (right) -->
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle;">
-                <!-- Previous version - commented out
-                <p>
-                  Hello! I'm a Master's student in Computer Science at the <a href="https://www.cics.umass.edu/">University of Massachusetts Amherst</a> where I am fortunate to be advised by Professor <a href="https://people.cs.umass.edu/~bsilva/">Bruno Castro da Silva</a> at the Autonomous Learning Lab.
-                </p>
-                <p>
-                  <a href="https://mansi-maheshwari.com/index.html#research">My research</a> focuses on Lifelong Reinforcement Learning—I study how RL agents can continually adapt under non-stationarity. This work has been published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and is selected for an <strong>oral presentation</strong> at <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a>. Check out my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a> where I distilled my research for a broad audience! I am now extending this research to embodied settings with Professor <a href="https://hcr.cs.umass.edu/people/hzhang/" target="_blank">Hao Zhang</a>.
-                </p>
-                <p>
-                  In <strong>Summer 2025</strong> and <strong>Spring 2026</strong>, as an AI Research intern at <a href="https://www.cnh.com/">CNH</a>, I built a multi-task learning model, optimizing the vision system for a driverless tractor. In parallel, driven by my commitment to broadening participation in AI, I taught <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai">Fundamentals of AI</a> to high school students as an AI Instructor at the <a href="https://www.washington.edu/">University of Washington</a>. I am currently consulting with <a href="https://www.icevonline.com/" target="_blank">iCEV</a> to help design an upcoming AI textbook for high school learners.
-                </p>
-                <p>
-                  In <strong>2022</strong>, I earned my B.S. in Electrical Engineering from the <a href="https://www.washington.edu/">University of Washington</a> and then I spent two years as a Software Engineer at Nordstrom.
-                </p>
-                <p>
-                  I will be graduating in May <strong>2026</strong> and am super excited about what's next! If you'd like to chat, or collaborate, feel free to reach out over <a href="mailto:mmaheshwari@umass.edu">email</a>, or book a <a href="https://calendar.app.google/juwc4MBJWibrDszZ9">slot</a>, or share anonymous <a href="https://www.admonymous.co/mansi-maheshwari" target="_blank">feedback</a>!
-                </p>
-                -->
+              <!-- Icons -->
+              <p style="margin:0 0 1.4em 0;">
+                <a href="mailto:mmaheshwari@umass.edu" style="margin-right:18px;text-decoration:none;color:#333;font-size:22px;" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" style="margin-right:18px;text-decoration:none;color:#333;font-size:22px;" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
+                <a href="https://www.linkedin.com/in/maheshwari989mansim/" style="margin-right:18px;text-decoration:none;color:#333;font-size:22px;" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </p>
 
-                <p style="margin-top:0; margin-bottom:0.2em;"><strong>My Journey</strong></p>
+              <!-- Collapsible My Journey -->
+              <details style="margin-top:0.5em;">
+                <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
+                  <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
+                </summary>
+                <div style="margin-top:0.9em;line-height:1.7;">
+                  <p>
+                    I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
+                  </p>
+                  <p>
+                    That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
+                  </p>
+                  <p style="margin-bottom:0;">
+                    Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
+                  </p>
+                </div>
+              </details>
+            </div>
 
-                <p>
-                  I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
-                </p>
-                <p>
-                  That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
-                </p>
-                <p>
-                  Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
-                </p>
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%;vertical-align:top;text-align:center;">
-                <a href="images/mansi_2026.png"><img style="width:100%;max-width:100%;object-fit:cover;border-radius:8px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink"></a>
-                <p style="text-align:center;margin-top:15px;">
-                  <a href="mailto:mmaheshwari@umass.edu" style="margin:0 10px;text-decoration:none;color:#333;font-size:24px;" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                  <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" style="margin:0 10px;text-decoration:none;color:#333;font-size:24px;" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
-                  <a href="https://www.linkedin.com/in/maheshwari989mansim/" style="margin:0 10px;text-decoration:none;color:#333;font-size:24px;" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
+            <!-- Right: photo -->
+            <div style="flex:0 0 38%;max-width:38%;text-align:center;">
+              <a href="images/mansi_2026.png">
+                <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Rotating arrow script for the details toggle -->
+          <script>
+            document.querySelector('details').addEventListener('toggle', function() {
+              const arrow = this.querySelector('.journey-arrow');
+              arrow.style.transform = this.open ? 'rotate(90deg)' : 'rotate(0deg)';
+            });
+          </script>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
