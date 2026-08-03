@@ -42,6 +42,28 @@
       body.dark-theme .social-icon:hover {
         color: #4a9eff;
       }
+
+      /* ── Waterfall fade-up animation ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .waterfall {
+        opacity: 0;
+        animation: fadeUp 0.6s ease forwards;
+      }
+      .waterfall-1 { animation-delay: 0.05s; }
+      .waterfall-2 { animation-delay: 0.25s; }
+      .waterfall-3 { animation-delay: 0.45s; }
+      .waterfall-4 { animation-delay: 0.65s; }
+      .waterfall-photo { animation-delay: 0.15s; }
       
       /* Dark theme styles */
       body.dark-theme {
@@ -189,24 +211,41 @@
           <!-- ── HERO: full viewport, name + one-liner left, photo right ── -->
           <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:2.5em;padding:0 2.5%;min-height:calc(100vh - 62px);box-sizing:border-box;">
 
-            <!-- Left: name + one-liner + My Journey toggle -->
+            <!-- Left: name → icons → bio → research interests → My Journey toggle -->
             <div style="flex:1 1 55%;min-width:0;">
-              <p class="name" style="margin:0 0 0.3em 0;">
+
+              <!-- 1. Name -->
+              <p class="name waterfall waterfall-1" style="margin:0 0 0.35em 0;">
                 Mansi Maheshwari
               </p>
-              <p style="margin:0;font-size:1.05em;line-height:1.6;">
-                I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
-              </p>
 
-              <!-- Social icons — directly under bio -->
-              <div style="display:flex;align-items:center;gap:1.25rem;margin-top:1.1em;">
+              <!-- 2. Icons — right under name -->
+              <div class="waterfall waterfall-2" style="display:flex;align-items:center;gap:1.25rem;margin-bottom:0.85em;">
                 <a href="mailto:mmaheshwari@umass.edu" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" class="social-icon" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
                 <a href="https://www.linkedin.com/in/maheshwari989mansim/" class="social-icon" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
               </div>
 
-              <!-- Collapsible My Journey — 2× line spacing below icons -->
-              <details style="margin-top:2em;">
+              <!-- 3. Bio one-liner -->
+              <p class="waterfall waterfall-3" style="margin:0 0 1.2em 0;font-size:1.05em;line-height:1.6;">
+                I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
+              </p>
+
+              <!-- 4. Research interests — body paragraph, no toggle -->
+              <div class="waterfall waterfall-4" style="margin-bottom:1.8em;line-height:1.7;">
+                <p style="margin:0 0 0.8em 0;">
+                  I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
+                </p>
+                <p style="margin:0 0 0.4em 0;font-weight:600;">Current obsessions:</p>
+                <ul style="margin:0;padding-left:1.3em;">
+                  <li style="margin-bottom:0.45em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
+                  <li style="margin-bottom:0.45em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
+                  <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
+                </ul>
+              </div>
+
+              <!-- 5. Collapsible My Journey -->
+              <details class="waterfall waterfall-4" style="margin-top:0;">
                 <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
                   <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
                 </summary>
@@ -224,8 +263,8 @@
               </details>
             </div>
 
-            <!-- Right: photo + icons -->
-            <div style="flex:0 0 38%;max-width:38%;text-align:center;">
+            <!-- Right: photo -->
+            <div class="waterfall waterfall-photo" style="flex:0 0 38%;max-width:38%;text-align:center;">
               <a href="images/mansi_2026.png">
                 <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
               </a>
