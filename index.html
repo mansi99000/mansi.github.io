@@ -209,10 +209,10 @@
       <tr style="padding:0px">
         <td style="padding:0px">
 
-          <!-- ── HERO: name + bio left (vertically centered, slightly above), photo + icons right ── -->
-          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:3em;padding:0 4%;min-height:calc(100vh - 62px);padding-bottom:8%;box-sizing:border-box;">
+          <!-- ── HERO: name + bio left, photo + icons right ── -->
+          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:3em;padding:5% 4% 3% 4%;box-sizing:border-box;">
 
-            <!-- Left: name + bio only -->
+            <!-- Left: name + bio -->
             <div style="flex:1 1 52%;min-width:0;">
               <p class="name waterfall waterfall-1" style="margin:0 0 0.4em 0;">
                 Mansi Maheshwari
@@ -236,28 +236,33 @@
 
           </div>
 
-          <!-- ── BELOW FOLD: research + My Journey, full width ── -->
-          <div style="padding:2.5em 4% 2em 4%;line-height:1.75;">
+          <!-- ── TOGGLES: full width, one-line gap below hero ── -->
+          <div style="padding:0 4% 2.5em 4%;line-height:1.75;">
 
-            <!-- Research interests -->
-            <div class="waterfall waterfall-3">
-              <p style="margin:0 0 0.85em 0;">
-                I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
-              </p>
-              <p style="margin:0 0 0.5em 0;font-weight:600;">Current obsessions:</p>
-              <ul style="margin:0 0 1.8em 0;padding-left:1.4em;">
-                <li style="margin-bottom:0.5em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
-                <li style="margin-bottom:0.5em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
-                <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
-              </ul>
-            </div>
+            <!-- Toggle 1: Research Interests -->
+            <details class="waterfall waterfall-3" style="margin-bottom:0.6em;">
+              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;padding:0.2em 0;">
+                <span class="ri-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> Research Interests
+              </summary>
+              <div style="margin-top:0.85em;line-height:1.75;">
+                <p style="margin:0 0 0.85em 0;">
+                  I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
+                </p>
+                <p style="margin:0 0 0.5em 0;font-weight:600;">Current obsessions:</p>
+                <ul style="margin:0;padding-left:1.4em;">
+                  <li style="margin-bottom:0.5em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
+                  <li style="margin-bottom:0.5em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
+                  <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
+                </ul>
+              </div>
+            </details>
 
-            <!-- Collapsible My Journey -->
+            <!-- Toggle 2: My Journey -->
             <details class="waterfall waterfall-4">
-              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
+              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;padding:0.2em 0;">
                 <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
               </summary>
-              <div style="margin-top:0.9em;line-height:1.75;">
+              <div style="margin-top:0.85em;line-height:1.75;">
                 <p>
                   I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
                 </p>
@@ -272,11 +277,13 @@
 
           </div>
 
-          <!-- Rotating arrow for the toggle -->
+          <!-- Arrow rotation for all toggles -->
           <script>
-            document.querySelector('details').addEventListener('toggle', function() {
-              const arrow = this.querySelector('.journey-arrow');
-              arrow.style.transform = this.open ? 'rotate(90deg)' : 'rotate(0deg)';
+            document.querySelectorAll('details').forEach(function(det) {
+              det.addEventListener('toggle', function() {
+                const arrow = this.querySelector('.ri-arrow, .journey-arrow');
+                if (arrow) arrow.style.transform = this.open ? 'rotate(90deg)' : 'rotate(0deg)';
+              });
             });
           </script>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
