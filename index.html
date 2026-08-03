@@ -269,6 +269,9 @@
 
               <!-- RESEARCH INTERESTS (hidden by default) -->
               <div id="left-research" style="display:none;line-height:1.75;animation:fadeUp 0.35s ease forwards;">
+                <button class="section-toggle" onclick="collapseToDefault()" style="margin-bottom:0.9em;">
+                  <span class="t-arrow" style="transform:rotate(90deg);display:inline-block;">▶</span> Research Interests
+                </button>
                 <p style="margin:0 0 0.85em 0;">
                   I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
                 </p>
@@ -282,6 +285,9 @@
 
               <!-- MY JOURNEY (hidden by default) -->
               <div id="left-journey" style="display:none;line-height:1.75;animation:fadeUp 0.35s ease forwards;">
+                <button class="section-toggle" onclick="collapseToDefault()" style="margin-bottom:0.9em;">
+                  <span class="t-arrow" style="transform:rotate(90deg);display:inline-block;">▶</span> My Journey
+                </button>
                 <p>
                   I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
                 </p>
@@ -327,10 +333,7 @@
             }
 
             function handleLeftClick(e) {
-              // only collapse when something is open and click is not on a link/button
-              if (activeSection && e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
-                collapseToDefault();
-              }
+              // no-op: collapsing is only done via the button inside the expanded section
             }
 
             function collapseToDefault() {
