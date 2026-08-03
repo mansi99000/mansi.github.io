@@ -190,7 +190,7 @@
   </head>
 
   <body>
-    <div style="position:sticky;top:0;background-color:white;z-index:1000;width:100%;max-width:800px;margin:0 auto;padding:20px 0;text-align:center;border-bottom:none;">
+    <div style="position:sticky;top:0;background-color:white;z-index:1000;width:100%;max-width:960px;margin:0 auto;padding:20px 0;text-align:center;border-bottom:none;">
       <a href="index.html#about" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">About</a>
       <a href="index.html#news" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">News</a>
       <a href="index.html#research" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;">Research</a>
@@ -205,73 +205,72 @@
       -->
       <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" style="margin:0 15px;text-decoration:none;color:#333;font-weight:500;font-size:16px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">🌙</button>
     </div>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <table style="width:100%;max-width:960px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <!-- ── HERO: full viewport, name + one-liner left, photo right ── -->
-          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:2.5em;padding:0 2.5%;min-height:calc(100vh - 62px);box-sizing:border-box;">
 
-            <!-- Left: name → icons → bio → research interests → My Journey toggle -->
-            <div style="flex:1 1 55%;min-width:0;">
+          <!-- ── HERO: name + bio left (vertically centered, slightly above), photo + icons right ── -->
+          <div id="about" style="display:flex;align-items:center;justify-content:space-between;gap:3em;padding:0 4%;min-height:calc(100vh - 62px);padding-bottom:8%;box-sizing:border-box;">
 
-              <!-- 1. Name -->
-              <p class="name waterfall waterfall-1" style="margin:0 0 0.35em 0;">
+            <!-- Left: name + bio only -->
+            <div style="flex:1 1 52%;min-width:0;">
+              <p class="name waterfall waterfall-1" style="margin:0 0 0.4em 0;">
                 Mansi Maheshwari
               </p>
+              <p class="waterfall waterfall-2" style="margin:0;font-size:1.05em;line-height:1.6;">
+                I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
+              </p>
+            </div>
 
-              <!-- 2. Icons — right under name -->
-              <div class="waterfall waterfall-2" style="display:flex;align-items:center;gap:1.25rem;margin-bottom:0.85em;">
+            <!-- Right: photo + icons -->
+            <div class="waterfall waterfall-photo" style="flex:0 0 36%;max-width:36%;text-align:center;">
+              <a href="images/mansi_2026.png">
+                <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
+              </a>
+              <div style="display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:14px;">
                 <a href="mailto:mmaheshwari@umass.edu" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" class="social-icon" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
                 <a href="https://www.linkedin.com/in/maheshwari989mansim/" class="social-icon" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
               </div>
-
-              <!-- 3. Bio one-liner -->
-              <p class="waterfall waterfall-3" style="margin:0 0 1.2em 0;font-size:1.05em;line-height:1.6;">
-                I'm a PhD student at <a href="https://mila.quebec/en" target="_blank">Mila</a> studying Lifelong Machine Learning under <a href="https://chandar-lab.github.io/" target="_blank">Prof. Sarath Chandar</a>.
-              </p>
-
-              <!-- 4. Research interests — body paragraph, no toggle -->
-              <div class="waterfall waterfall-4" style="margin-bottom:1.8em;line-height:1.7;">
-                <p style="margin:0 0 0.8em 0;">
-                  I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
-                </p>
-                <p style="margin:0 0 0.4em 0;font-weight:600;">Current obsessions:</p>
-                <ul style="margin:0;padding-left:1.3em;">
-                  <li style="margin-bottom:0.45em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
-                  <li style="margin-bottom:0.45em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
-                  <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
-                </ul>
-              </div>
-
-              <!-- 5. Collapsible My Journey -->
-              <details class="waterfall waterfall-4" style="margin-top:0;">
-                <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
-                  <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
-                </summary>
-                <div style="margin-top:0.9em;line-height:1.7;">
-                  <p>
-                    I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
-                  </p>
-                  <p>
-                    That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
-                  </p>
-                  <p style="margin-bottom:0;">
-                    Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
-                  </p>
-                </div>
-              </details>
-            </div>
-
-            <!-- Right: photo -->
-            <div class="waterfall waterfall-photo" style="flex:0 0 38%;max-width:38%;text-align:center;">
-              <a href="images/mansi_2026.png">
-                <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
-              </a>
             </div>
 
           </div>
 
+          <!-- ── BELOW FOLD: research + My Journey, full width ── -->
+          <div style="padding:2.5em 4% 2em 4%;line-height:1.75;">
+
+            <!-- Research interests -->
+            <div class="waterfall waterfall-3">
+              <p style="margin:0 0 0.85em 0;">
+                I study how learning agents can adapt continually, even after deployment, without sacrificing safety. My past work tackled the plasticity–stability dilemma in single-agent reinforcement learning: how an agent can keep learning new things without forgetting, destabilizing, or becoming unsafe in the process.
+              </p>
+              <p style="margin:0 0 0.5em 0;font-weight:600;">Current obsessions:</p>
+              <ul style="margin:0 0 1.8em 0;padding-left:1.4em;">
+                <li style="margin-bottom:0.5em;"><strong>Continual multi-agent RL.</strong> How do we bring continual learning to settings where everyone else is changing too?</li>
+                <li style="margin-bottom:0.5em;"><strong>Continual alignment.</strong> If learning never stops, safety can't be a one-off check. How do we keep every update aligned? Broadly interested in alignment.</li>
+                <li><strong>Plasticity and agency.</strong> Is an agent that can't change still choosing anything?</li>
+              </ul>
+            </div>
+
+            <!-- Collapsible My Journey -->
+            <details class="waterfall waterfall-4">
+              <summary style="cursor:pointer;font-weight:600;font-size:1em;list-style:none;display:flex;align-items:center;gap:0.4em;user-select:none;">
+                <span class="journey-arrow" style="font-size:0.8em;transition:transform 0.25s;">▶</span> My Journey
+              </summary>
+              <div style="margin-top:0.9em;line-height:1.75;">
+                <p>
+                  I moved from India to Seattle to pursue a Bachelor's in Electrical Engineering at the <a href="https://www.washington.edu/" target="_blank">University of Washington</a>. After graduating, I spent two years building scalable systems as a Software Engineer at <a href="https://www.nordstrom.com/" target="_blank">Nordstrom</a>. While I loved the practical side of tech, I felt a pull towards research — to tackle fundamental, open-ended questions.
+                </p>
+                <p>
+                  That realization brought me to pursue a Master's at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst</a>, where I fell in love with Reinforcement Learning. I had the privilege of conducting research at the <a href="https://all.cs.umass.edu/" target="_blank">Autonomous Learning Lab</a> (founded by Turing Awardee <a href="https://en.wikipedia.org/wiki/Andrew_Barto" target="_blank">Andy Barto</a>) under <a href="https://people.cs.umass.edu/~bsilva/" target="_blank">Prof. Bruno Castro da Silva</a>. Our work was published at <a href="https://lifelong-ml.cc/Conferences/2025/acceptedpapers/Workshop" target="_blank">CoLLAs 2025</a> and <a href="https://cyprusconferences.org/aamas2026/" target="_blank">AAMAS 2026</a> (oral), and I distilled the core ideas for a broad audience in my <a href="https://youtu.be/XgQybt9C4NA?si=h9uzTlT42PlE6WAq" target="_blank">Three Minute Thesis</a>. I also got to share that passion with high school students by teaching <a href="https://www.youth-teen.uw.edu/camps-courses/fundamentals-of-artificial-intelligence-ai" target="_blank">Intro to AI</a> at UW, and put it to work in the real world as an AI Research Intern building autonomous driverless tractors at <a href="https://www.cnh.com/" target="_blank">CNH Industrial</a>.
+                </p>
+                <p style="margin-bottom:0;">
+                  Now at <a href="https://mila.quebec/en" target="_blank">Mila</a>, my research focuses on developing lifelong systems that can continuously adapt and learn safely, often drawing inspiration from natural learning systems.
+                </p>
+              </div>
+            </details>
+
+          </div>
 
           <!-- Rotating arrow for the toggle -->
           <script>
