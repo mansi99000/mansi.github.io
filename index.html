@@ -320,12 +320,17 @@
           <script>
             var activeSection = null;
 
+            function hideEl(id) {
+              var el = document.getElementById(id);
+              if (el) el.style.display = 'none';
+            }
+
             function showSection(e, id) {
               e.stopPropagation(); // don't let click bubble to handleLeftClick
               activeSection = id;
-              document.getElementById('left-default').style.display = 'none';
-              document.getElementById('left-research').style.display = 'none';
-              document.getElementById('left-journey').style.display  = 'none';
+              hideEl('left-default');
+              hideEl('left-research');
+              hideEl('left-journey');
               var el = document.getElementById('left-' + id);
               el.style.display = 'block';
               // restart animation
@@ -340,8 +345,8 @@
 
             function collapseToDefault() {
               activeSection = null;
-              document.getElementById('left-research').style.display = 'none';
-              document.getElementById('left-journey').style.display  = 'none';
+              hideEl('left-research');
+              hideEl('left-journey');
               document.getElementById('left-default').style.display = 'block';
             }
 
