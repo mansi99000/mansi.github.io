@@ -309,7 +309,12 @@
                 <img style="width:100%;max-width:100%;object-fit:cover;border-radius:10px;" alt="Mansi Maheshwari" src="images/mansi_2026.png" class="hoverZoomLink">
               </a>
               <div style="display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:14px;">
-                <a href="mailto:mansi.maheshwari@mila.quebec" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:mansi.maheshwari@mila.quebec" class="social-icon" aria-label="Email" id="email-icon"
+                   onclick="(function(e){navigator.clipboard&&navigator.clipboard.writeText('mansi.maheshwari@mila.quebec').then(function(){var t=document.getElementById('email-tip');t.style.opacity='1';setTimeout(function(){t.style.opacity='0';},1800);});}).call(this,event)"
+                   style="position:relative;">
+                  <i class="fas fa-envelope"></i>
+                  <span id="email-tip" style="position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:0.7rem;white-space:nowrap;padding:3px 8px;border-radius:4px;pointer-events:none;opacity:0;transition:opacity 0.2s;">Copied!</span>
+                </a>
                 <a href="https://scholar.google.com/citations?user=kiK0JvgAAAAJ&hl=en&oi=ao" class="social-icon" aria-label="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
                 <a href="https://www.linkedin.com/in/maheshwari989mansim/" class="social-icon" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
               </div>
